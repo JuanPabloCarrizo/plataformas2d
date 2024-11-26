@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlfma1hejxvjn"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_8h12f"]
+[ext_resource type="FontFile" uid="uid://bkw41tnwyejpq" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="1_rb0ui"]
+[ext_resource type="FontFile" uid="uid://bxpihxitwpxbb" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="3_5ndde"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_8h12f")
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -172.0
+offset_top = 20.0
+offset_right = -30.0
+offset_bottom = 77.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.919281, 7.70092e-06, 9.62615e-08, 1)
+theme_override_fonts/font = ExtResource("1_rb0ui")
+theme_override_font_sizes/font_size = 40
+text = "0/18"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelComplete" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 209.0
+offset_right = 962.0
+offset_bottom = 495.0
+theme_override_colors/font_color = Color(0.996078, 0.14902, 0.678431, 1)
+theme_override_colors/font_shadow_color = Color(0.590347, 0.132177, 0.335363, 1)
+theme_override_fonts/font = ExtResource("3_5ndde")
+theme_override_font_sizes/font_size = 48
+text = "¡Nivel Completo!"
+
+[node name="PlayButton" type="Button" parent="Control"]
+process_mode = 2
+layout_mode = 0
+offset_left = 494.0
+offset_top = 349.0
+offset_right = 692.0
+offset_bottom = 483.0
+theme_override_colors/font_hover_pressed_color = Color(0.823529, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.706295, 0.274459, 0.946044, 1)
+theme_override_colors/font_focus_color = Color(0.873537, 0.000433369, 0.836359, 1)
+theme_override_colors/font_color = Color(0.843137, 0, 0.819608, 1)
+theme_override_colors/icon_pressed_color = Color(0.988235, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5ndde")
+theme_override_font_sizes/font_size = 48
+action_mode = 0
+text = "Play"
+icon_alignment = 1
+
+[connection signal="pressed" from="Control/PlayButton" to="." method="_on_play_button_pressed"]
