@@ -1,7 +1,7 @@
 extends Node
 
 var score = 0
-var total_coins = 17
+var total_coins = 1
 
 signal score_updated
 signal level_completed

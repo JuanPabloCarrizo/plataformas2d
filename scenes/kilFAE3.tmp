@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn18ocla1ska6"]
+
+[ext_resource type="Script" path="res://scripts/kill_screen.gd" id="1_lqgkm"]
+[ext_resource type="FontFile" uid="uid://bxpihxitwpxbb" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="1_ppvvs"]
+[ext_resource type="FontFile" uid="uid://bkw41tnwyejpq" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="2_ha5wg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cg8ip"]
+bg_color = Color(0.716405, 0.121125, 0, 0.823529)
+
+[node name="KillScreen" type="CanvasLayer"]
+script = ExtResource("1_lqgkm")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 652.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cg8ip")
+
+[node name="Label" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 188.0
+offset_right = 1077.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.929412, 0.0941176, 0.87451, 1)
+theme_override_colors/font_outline_color = Color(0.0477688, 0.00452461, 0.00289888, 1)
+theme_override_fonts/font = ExtResource("1_ppvvs")
+theme_override_font_sizes/font_size = 104
+text = "¡ Moriste !"
+
+[node name="ButtonContinue" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 395.0
+offset_right = 762.0
+offset_bottom = 513.0
+theme_override_colors/font_pressed_color = Color(0.706295, 0.274459, 0.946044, 1)
+theme_override_colors/font_color = Color(1, 0, 0.760784, 1)
+theme_override_colors/icon_pressed_color = Color(0.861514, 0.0980462, 0.537275, 1)
+theme_override_fonts/font = ExtResource("2_ha5wg")
+theme_override_font_sizes/font_size = 32
+text = "Continuar"

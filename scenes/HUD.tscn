@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlfma1hejxvjn"]
+[gd_scene load_steps=6 format=3 uid="uid://dlfma1hejxvjn"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_8h12f"]
 [ext_resource type="FontFile" uid="uid://bkw41tnwyejpq" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="1_rb0ui"]
 [ext_resource type="FontFile" uid="uid://bxpihxitwpxbb" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="3_5ndde"]
+[ext_resource type="AudioStream" uid="uid://coc2abgxyqhdi" path="res://brackeys_platformer_assets/sounds/power_up.wav" id="4_p885e"]
+
+[sub_resource type="Theme" id="Theme_v2o2u"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_8h12f")
@@ -19,7 +22,7 @@ grow_horizontal = 0
 theme_override_colors/font_color = Color(0.919281, 7.70092e-06, 9.62615e-08, 1)
 theme_override_fonts/font = ExtResource("1_rb0ui")
 theme_override_font_sizes/font_size = 40
-text = "0/18"
+text = "0/17"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -44,14 +47,15 @@ text = "¡Nivel Completo!"
 [node name="PlayButton" type="Button" parent="Control"]
 process_mode = 2
 layout_mode = 0
-offset_left = 494.0
-offset_top = 349.0
-offset_right = 692.0
-offset_bottom = 483.0
+offset_left = 343.0
+offset_top = 348.0
+offset_right = 541.0
+offset_bottom = 482.0
+theme = SubResource("Theme_v2o2u")
 theme_override_colors/font_hover_pressed_color = Color(0.823529, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.706295, 0.274459, 0.946044, 1)
 theme_override_colors/font_focus_color = Color(0.873537, 0.000433369, 0.836359, 1)
-theme_override_colors/font_color = Color(0.843137, 0, 0.819608, 1)
+theme_override_colors/font_color = Color(0.987596, 0.905818, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0.988235, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_5ndde")
 theme_override_font_sizes/font_size = 48
@@ -59,4 +63,22 @@ action_mode = 0
 text = "Play"
 icon_alignment = 1
 
+[node name="ExitButton" type="Button" parent="Control"]
+process_mode = 2
+layout_mode = 0
+offset_left = 666.0
+offset_top = 345.0
+offset_right = 877.0
+offset_bottom = 481.0
+theme_override_colors/font_color = Color(0.724281, 0, 0.150671, 1)
+theme_override_fonts/font = ExtResource("3_5ndde")
+theme_override_font_sizes/font_size = 48
+text = "Salir"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control"]
+process_mode = 3
+stream = ExtResource("4_p885e")
+bus = &"SFX"
+
 [connection signal="pressed" from="Control/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/ExitButton" to="." method="_on_exit_button_pressed"]

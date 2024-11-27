@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://dhitlgl6bwuc4"]
+[gd_scene load_steps=43 format=4 uid="uid://dhitlgl6bwuc4"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_akhmr"]
 [ext_resource type="PackedScene" uid="uid://jb73watw4o0r" path="res://scenes/player.tscn" id="1_blare"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ors7e0a4w4ab" path="res://scenes/slime_purple.tscn" id="8_lu4kv"]
 [ext_resource type="AudioStream" uid="uid://8havsjkoejlw" path="res://brackeys_platformer_assets/music/time_for_adventure.mp3" id="10_ls10p"]
 [ext_resource type="PackedScene" uid="uid://dlfma1hejxvjn" path="res://scenes/HUD.tscn" id="11_hac56"]
+[ext_resource type="PackedScene" uid="uid://dn18ocla1ska6" path="res://scenes/kill_screen.tscn" id="12_s1cxc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_myowa"]
 texture = ExtResource("2_oo1im")
@@ -767,7 +768,7 @@ position = Vector2(616, -169)
 [node name="Coin18" parent="Coins" instance=ExtResource("5_fchd1")]
 position = Vector2(274, -313)
 
-[node name="Killzone" parent="." instance=ExtResource("6_etk7s")]
+[node name="Killzone" parent="." groups=["kill_zones"] instance=ExtResource("6_etk7s")]
 position = Vector2(81, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
@@ -790,7 +791,7 @@ libraries = {
 }
 autoplay = "move"
 
-[node name="Killzone2" parent="." instance=ExtResource("6_etk7s")]
+[node name="Killzone2" parent="." groups=["kill_zones"] instance=ExtResource("6_etk7s")]
 position = Vector2(37, 121)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone2"]
@@ -802,3 +803,5 @@ autoplay = true
 bus = &"Music"
 
 [node name="HUD" parent="." instance=ExtResource("11_hac56")]
+
+[node name="KillScreen" parent="." instance=ExtResource("12_s1cxc")]
